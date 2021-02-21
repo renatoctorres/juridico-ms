@@ -1,22 +1,19 @@
 package com.empresa.infra.repositories.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Data;
 
-@Data
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 @Entity
-@Table(name="TB_CLIENTE_TELEFONE")
-public class TipoTelefone {
-	
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long codigo;
-	
+@Table(name="TB_TIPO_TELEFONE")
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class TipoTelefone extends BaseEntity{
+
+	private static final long serialVersionUID = 1L;
+
 	private String descricao;
 	
 	private int tamanho;

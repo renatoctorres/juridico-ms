@@ -1,6 +1,7 @@
 package com.empresa.infra.delivery.cliente;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,8 +30,7 @@ public class ClienteController {
 		return ResponseEntity.ok(lista);
 			
 	}
-	
-	
+		
 	@GetMapping("/page")
 	public ResponseEntity<Page<ClienteDTO>> buscarPaginado(@RequestBody Pageable page){
 		Page<ClienteDTO> pageClienteDTO = this.service.findByPage(page);
@@ -51,5 +51,4 @@ public class ClienteController {
 		return ResponseEntity.ok(clienteDTO);
 			
 	}
-
 }

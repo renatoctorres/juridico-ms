@@ -2,14 +2,11 @@ package com.empresa.core.usecases.impl.cliente;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import com.empresa.core.model.cliente.ClienteDTO;
 import com.empresa.core.usecases.cliente.ClienteService;
 import com.empresa.infra.configuration.converter.cliente.ClienteConverter;
@@ -17,11 +14,13 @@ import com.empresa.infra.repositories.cliente.ClienteRepository;
 import com.empresa.infra.repositories.entity.cliente.Cliente;
 
 @Service
+@Transactional
 public class ClienteServiceImpl implements ClienteService{
+	
 	
 	@Autowired
 	ClienteRepository repository;
-	
+
 	ClienteConverter converter = new ClienteConverter();
 	
 	public Optional<ClienteDTO> findById(Long id) {
@@ -58,7 +57,6 @@ public class ClienteServiceImpl implements ClienteService{
 	public ClienteDTO callConvert(Cliente cliente) {
 		return converter.convertFromEntity(cliente);
 	}
-
 	
 	
 
